@@ -1,5 +1,6 @@
 <script setup>
 import { AppState } from '@/AppState.js';
+import BlogTemplate from '@/components/BlogTemplate.vue';
 import Example from '@/components/Example.vue';
 import { blogService } from '@/services/BlogService.js';
 import { logger } from '@/utils/Logger.js';
@@ -23,7 +24,7 @@ async function getBlogs() {
 </script>
 
 <template>
-
+  <BlogTemplate v-for="blog in blogs" :key="blog.id" :blogs="blog" />
 </template>
 
 <style scoped lang="scss"></style>

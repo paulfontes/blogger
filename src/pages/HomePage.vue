@@ -24,7 +24,11 @@ async function getBlogs() {
 </script>
 
 <template>
-  <BlogTemplate v-for="blog in blogs" :key="blog.id" :blogs="blog" />
+  <div class="container">
+    <div class="row ">
+      <BlogTemplate v-for="blog in blogs" :key="blog.id" :blog="blog" />
+    </div>
+  </div>
 </template>
 
 <style scoped lang="scss"></style>

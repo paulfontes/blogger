@@ -8,6 +8,7 @@ class BlogService {
         const response = await api.get('api/blogs')
         const blogs = response.data.map((blogData) => new Blog(blogData))
         AppState.blog = blogs
+        logger.log(AppState.blog)
 
     }
 

@@ -1,21 +1,28 @@
 <script setup>
 import { Blog } from '@/models/Blog.js';
-
-
-
+import { blogService } from '@/services/BlogService.js';
 
 const props = defineProps({
     blog: { type: Blog, required: true }
 })
 
+function setActiveBlog() {
+    blogService.setActiveBlog(props.blog)
+
+
+
+
+}
+
+
 </script>
 
 
 <template>
-    <div class="col-md-3 blog-body ">
+    <div @click="setActiveBlog()" type="button" data-bs-target="#active-blog" data-bs-toggle="modal"
+        class="col-md-3 blog-body ">
         <img class="img-fluid imgs" :src="blog.imgUrl" alt="">
         <h1>{{ blog.title }}</h1>
-        <p>{{ blog.body }}</p>
     </div>
 </template>
 

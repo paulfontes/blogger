@@ -4,6 +4,12 @@ import { Blog } from "@/models/Blog.js"
 import { AppState } from "@/AppState.js"
 
 class BlogService {
+
+    setActiveBlog(activeBlog) {
+        AppState.activeBlog = activeBlog
+    }
+
+
     async getBlogs() {
         const response = await api.get('api/blogs')
         const blogs = response.data.map((blogData) => new Blog(blogData))

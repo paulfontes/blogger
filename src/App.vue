@@ -1,4 +1,6 @@
 <script setup>
+import ActiveBlog from './components/ActiveBlog.vue';
+import ModalTime from './components/ModalTime.vue';
 import Navbar from './components/Navbar.vue';
 import { RouterView } from 'vue-router';
 
@@ -9,14 +11,13 @@ import { RouterView } from 'vue-router';
     <Navbar />
   </header>
   <main>
-    <RouterView/>
+    <RouterView />
   </main>
   <footer class=" text-center">
-    Made with <i class="mdi mdi-heart text-pink"></i> by CodeWorks
+    <ModalTime modalId="active-blog" id="active-blog">
+      <ActiveBlog />
+    </ModalTime>
   </footer>
 </template>
 
-<style lang="scss">
-
-
-</style>
+<style lang="scss"></style>

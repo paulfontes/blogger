@@ -17,10 +17,15 @@ const blog = computed(() => AppState.activeBlog)
         <div v-for="tag in blog.tags" :key="tag">
             <span>{{ tag }}</span>
         </div>
-        <div class="d-flex justify-content-end me-2">
-            <img class="creator-img" :src="blog.creator.picture" alt="">
-        </div>
-        <p class="text-end me-4">{{ blog.creator.name }}</p>
+        <RouterLink :to="{ name: 'Profile', params: { profileId: blog.creator.id } }">
+            <div data-bs-dismiss="modal">
+                <div class="d-flex justify-content-end me-2">
+                    <img class="creator-img" :src="blog.creator.picture" alt="">
+                </div>
+
+                <p class="text-end me-4">{{ blog.creator.name }}</p>
+            </div>
+        </RouterLink>
 
     </div>
 

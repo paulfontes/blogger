@@ -1,9 +1,14 @@
+import { logger } from "@/utils/Logger.js"
+import { api } from "./AxiosService.js"
+import { AppState } from "@/AppState.js"
+import { Profile } from "@/models/Profile.js"
 
 
 
 class ProfilesService {
-    getProfile() {
-
+    async getProfile(profileId) {
+        const response = await api.get(`api/profiles/${profileId}`)
+        AppState.activeprofile = new Profile(response.data)
     }
 
 
